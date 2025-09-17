@@ -27,9 +27,19 @@ public class Produto {
 		this.precoTotal = preco * quantidade;
 		this.montadora = null;
 	}
+	public Produto(int cod, String nome, double preco, int quantidade, String montadora) {
+	    this.cod = cod;
+	    this.nome = nome;
+	    this.quantidade = quantidade;
+	    this.preco = preco;
+	    this.precoTotal = preco * quantidade;
+	    this.montadora = montadora;
+	}
+
 	
 	public void incrementaQuantidade(int quantidade) {
-		this.quantidade += quantidade;	
+		this.quantidade += quantidade;
+		this.precoTotal = this.preco * this.quantidade;
 	}
 	
 	@Override
@@ -40,7 +50,7 @@ public class Produto {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cod, nome);
+		return Objects.hash(cod);
 	}
 
 	@Override
@@ -52,15 +62,19 @@ public class Produto {
 		if (getClass() != obj.getClass())
 			return false;
 		Produto other = (Produto) obj;
-		return cod == other.cod && Objects.equals(nome, other.nome);
+		return cod == other.cod;
 	}
 
 	// Getters and Setters
 	public double getPreco() {
 		return preco;
 	}
+	public double getPrecoTotal() {
+	    return precoTotal;
+	}
 	public void setPreco(double preco) {
 		this.preco = preco;
+		this.precoTotal = this.preco * this.quantidade;
 	}
 	public String getMontadora() {
 		return montadora;
@@ -77,6 +91,4 @@ public class Produto {
 	public int getQuantidade() {
 		return quantidade;
 	}
-	
-	
 }

@@ -1,5 +1,7 @@
 package br.com.autopartsmanager.model;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Produto {
@@ -7,41 +9,35 @@ public class Produto {
 	private String nome;
 	private int quantidade;
 	private double preco;
-	private double precoTotal;
-	
 	private String montadora;
+	private Map<String, String> referencias;
+	
 	public Produto() {}
 	public Produto(int cod, String nome, double preco) {
 		this.cod = cod;
 		this.nome = nome;
 		this.quantidade = 0;
 		this.preco = preco;
-		this.precoTotal = preco * quantidade;
 		this.montadora = null;
+		this.referencias = new HashMap<>();
 	}
 	public Produto(int cod, String nome, double preco, int quantidade) {
 		this.cod = cod;
 		this.nome = nome;
 		this.quantidade = quantidade;
 		this.preco = preco;
-		this.precoTotal = preco * quantidade;
 		this.montadora = null;
+		this.referencias = new HashMap<>();
 	}
 	public Produto(int cod, String nome, double preco, int quantidade, String montadora) {
 	    this.cod = cod;
 	    this.nome = nome;
 	    this.quantidade = quantidade;
 	    this.preco = preco;
-	    this.precoTotal = preco * quantidade;
 	    this.montadora = montadora;
+	    this.referencias = new HashMap<>();
 	}
 
-	
-	public void incrementaQuantidade(int quantidade) {
-		this.quantidade += quantidade;
-		this.precoTotal = this.preco * this.quantidade;
-	}
-	
 	@Override
 	public String toString() {
 		return "Produto [cod=" + cod + ", nome=" + nome + ", quantidade=" + quantidade + ", preco=" + preco
@@ -50,7 +46,7 @@ public class Produto {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cod);
+		return Objects.hash(cod, nome);
 	}
 
 	@Override
@@ -62,19 +58,22 @@ public class Produto {
 		if (getClass() != obj.getClass())
 			return false;
 		Produto other = (Produto) obj;
-		return cod == other.cod;
+		return cod == other.cod && Objects.equals(nome, other.nome);
 	}
-
+	
+	public void incrementaQuantidade(int quantidade) {
+		this.quantidade += quantidade;
+	}
+	
 	// Getters and Setters
 	public double getPreco() {
 		return preco;
 	}
-	public double getPrecoTotal() {
-	    return precoTotal;
+	public double PrecoTotal() {
+	    return this.preco * this.quantidade;
 	}
 	public void setPreco(double preco) {
 		this.preco = preco;
-		this.precoTotal = this.preco * this.quantidade;
 	}
 	public String getMontadora() {
 		return montadora;

@@ -10,8 +10,8 @@ public class Peça {
 	private String descricao;
 	private Map<Integer, Produto> produtos;
 	
-	public Peça(int iD, String nome, String descricao) {
-		ID = iD;
+	public Peça(int ID, String nome, String descricao) {
+		this.ID = ID;
 		this.nome = nome;
 		this.descricao = descricao;
 		this.produtos = new HashMap<>();

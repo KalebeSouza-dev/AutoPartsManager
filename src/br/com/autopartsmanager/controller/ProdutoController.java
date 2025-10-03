@@ -14,6 +14,10 @@ public class ProdutoController {
 		produtos = new HashMap<>();
 		peças = new HashMap<>();
 	}
+	public void adicionarPeça(int ID, String nome, String descricao) {
+		Peça peça = new Peça(ID, nome, descricao);
+		peças.put(ID, peça);
+	}
 	public void adicionarProduto(int idPeca, String marca, int codigo, int quantidade, double preco) {
 		Peça peça = peças.get(idPeca);
 		Produto p = new Produto(peça, marca, codigo, quantidade, preco);

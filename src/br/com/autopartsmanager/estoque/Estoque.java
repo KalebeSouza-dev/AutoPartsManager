@@ -1,7 +1,10 @@
-package br.com.autopartsmanager.model;
+package br.com.autopartsmanager.estoque;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import br.com.autopartsmanager.model.Peça;
+import br.com.autopartsmanager.model.Produto;
 
 public class Estoque {
 	private Map<Integer, Produto> produtos;

@@ -1,52 +1,38 @@
 package br.com.autopartsmanager.model;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class Produto {
-	private int cod;
-	private String nome;
+	private String marca;
+	private int codigo;
 	private int quantidade;
 	private double preco;
-	private String montadora;
-	private Map<String, String> referencias;
+	private Peça peça;
 	
 	public Produto() {}
-	public Produto(int cod, String nome, double preco) {
-		this.cod = cod;
-		this.nome = nome;
-		this.quantidade = 0;
-		this.preco = preco;
-		this.montadora = null;
-		this.referencias = new HashMap<>();
-	}
-	public Produto(int cod, String nome, double preco, int quantidade) {
-		this.cod = cod;
-		this.nome = nome;
+	public Produto(Peça peça, String marca, int codigo, int quantidade, double preco) {
+		this.marca = marca;
+		this.codigo = codigo;
 		this.quantidade = quantidade;
 		this.preco = preco;
-		this.montadora = null;
-		this.referencias = new HashMap<>();
+		this.peça = peça;
 	}
-	public Produto(int cod, String nome, double preco, int quantidade, String montadora) {
-	    this.cod = cod;
-	    this.nome = nome;
-	    this.quantidade = quantidade;
-	    this.preco = preco;
-	    this.montadora = montadora;
-	    this.referencias = new HashMap<>();
+	public Produto(String marca, int codigo) {
+		this.marca = marca;
+		this.codigo = codigo;
+		this.quantidade = 0;
+		this.preco = 0.0;
 	}
 
 	@Override
 	public String toString() {
-		return "Produto [cod=" + cod + ", nome=" + nome + ", quantidade=" + quantidade + ", preco=" + preco
-				+ ", montadora=" + montadora + "]";
+		return "Produto [marca=" + marca + ", codigo=" + codigo + 
+				", quantidade=" + quantidade + ", preco=" + preco + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cod, nome);
+		return Objects.hash(codigo, marca);
 	}
 
 	@Override
@@ -58,7 +44,7 @@ public class Produto {
 		if (getClass() != obj.getClass())
 			return false;
 		Produto other = (Produto) obj;
-		return cod == other.cod && Objects.equals(nome, other.nome);
+		return codigo == other.codigo && Objects.equals(marca, other.marca);
 	}
 	
 	public void incrementaQuantidade(int quantidade) {
@@ -69,23 +55,20 @@ public class Produto {
 	public double getPreco() {
 		return preco;
 	}
-	public double PrecoTotal() {
-	    return this.preco * this.quantidade;
+	public Peça getPeça() {
+		return peça;
+	}
+	public void setPeça(Peça peça) {
+		this.peça = peça;
 	}
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
-	public String getMontadora() {
-		return montadora;
+	public int getCodigo() {
+		return codigo;
 	}
-	public void setMontadora(String montadora) {
-		this.montadora = montadora;
-	}
-	public int getCod() {
-		return cod;
-	}
-	public String getNome() {
-		return nome;
+	public double PrecoTotal() {
+	    return this.preco * this.quantidade;
 	}
 	public int getQuantidade() {
 		return quantidade;

@@ -1,6 +1,8 @@
-package br.com.autopartsmanager.model;
+package produto;
 
 import java.util.Objects;
+
+import peca.Peca;
 
 public class Produto {
 	private String marca;
@@ -8,10 +10,10 @@ public class Produto {
 	private int quantidade;
 	private double precoCompra;
 	private double precoVenda;
-	private Peça peça;
+	private Peca peça;
 	
 	public Produto() {}
-	public Produto(Peça peça, String marca, int codigo, int quantidade, double preçoCompra, double precoVenda) {
+	public Produto(Peca peça, String marca, int codigo, int quantidade, double preçoCompra, double precoVenda) {
 		this.marca = marca;
 		this.codigo = codigo;
 		this.quantidade = quantidade;
@@ -61,10 +63,10 @@ public class Produto {
 	public double getPrecoVenda() {
 		return precoVenda;
 	}
-	public Peça getPeça() {
+	public Peca getPeça() {
 		return peça;
 	}
-	public void setPeça(Peça peça) {
+	public void setPeça(Peca peça) {
 		this.peça = peça;
 	}
 	public void setPrecoCompra(double preco) {

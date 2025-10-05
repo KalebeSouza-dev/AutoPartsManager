@@ -1,16 +1,18 @@
-package br.com.autopartsmanager.model;
+package peca;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class Peça {
+import produto.Produto;
+
+public class Peca {
 	private int ID;
 	private String nome;
 	private String descricao;
 	private Map<Integer, Produto> produtos;
 	
-	public Peça(int ID, String nome, String descricao) {
+	public Peca(int ID, String nome, String descricao) {
 		this.ID = ID;
 		this.nome = nome;
 		this.descricao = descricao;
@@ -48,7 +50,7 @@ public class Peça {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Peça other = (Peça) obj;
+		Peca other = (Peca) obj;
 		return ID == other.ID;
 	}
 

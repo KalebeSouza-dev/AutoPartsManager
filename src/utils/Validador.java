@@ -1,4 +1,4 @@
-package br.com.autopartsmanager.utils;
+package utils;
 
 public class Validador {
 	public static boolean validador(String str, String campo) {

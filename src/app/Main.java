@@ -48,19 +48,19 @@ public class Main {
 		}
 	}
 	
-	private static void listarProdutos(AutoPartsFacade aP, Scanner scanner) {
+	private static void listarProdutos(AutoPartsFacade AP, Scanner scanner) {
 		// TODO Auto-generated method stub
 		
 	}
-	private static void cadastrarProduto(AutoPartsFacade aP, Scanner scanner) {
+	private static void cadastrarProduto(AutoPartsFacade AP, Scanner scanner) {
 		// TODO Auto-generated method stub
 		
 	}
-	private static void listarPecas(AutoPartsFacade aP, Scanner scanner) {
+	private static void listarPecas(AutoPartsFacade AP, Scanner scanner) {
 		// TODO Auto-generated method stub
 		
 	}
-	private static void cadastrarPeca(AutoPartsFacade aP, Scanner scanner) {
+	private static void cadastrarPeca(AutoPartsFacade AP, Scanner scanner) {
 		// TODO Auto-generated method stub
 		
 	}

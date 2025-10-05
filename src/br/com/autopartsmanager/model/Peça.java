@@ -17,7 +17,7 @@ public class Peça {
 		this.produtos = new HashMap<>();
 	}
 	
-	private String exibirProdutos() {
+	public String exibirProdutos() {
 		StringBuffer out = new StringBuffer();
 		for (Produto p: produtos.values()) {
 			out.append(p.toString());

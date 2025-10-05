@@ -18,27 +18,38 @@ public class ProdutoController {
 		Peça peça = new Peça(ID, nome, descricao);
 		peças.put(ID, peça);
 	}
-	public void adicionarProduto(int idPeca, String marca, int codigo, int quantidade, double preco) {
+	public void adicionarProduto(int idPeca, String marca, int codigo, int quantidade, double preçoCompra, double preçoVenda) {
 		Peça peça = peças.get(idPeca);
-		Produto p = new Produto(peça, marca, codigo, quantidade, preco);
+		Produto p = new Produto(peça, marca, codigo, quantidade, preçoCompra, preçoVenda);
 		produtos.put(codigo, p);
 		peça.addProduto(p);
 	}
-	public void removerProduto(int cod) {
+	public String buscarProduto(int codigo) {
+		Produto produto = produtos.get(codigo);
+		Peça peça = produto.getPeça();
 		
+		return peça.exibirProdutos();
 	}
-	public void buscarProduto(int cod) {
-		
-	}
-	public Peça getPecas(int idPeca) {
+	private Peça getPecas(int idPeca) {
 		return peças.get(idPeca);
 	}
 	public String[] listarPeças() {
-	    String[] out = new String[produtos.size()];
+	    String[] out = new String[peças.size()];
 	    int i = 0;
 
 	    for (Peça p : peças.values()) {
 	        out[i] = p.getNome();
+	        i++;
+	    }
+
+	    return out;
+	}
+	public String[] listarProduts() {
+		String[] out = new String[produtos.size()];
+	    int i = 0;
+
+	    for (Produto p : produtos.values()) {
+	        out[i] = p.toString();
 	        i++;
 	    }
 

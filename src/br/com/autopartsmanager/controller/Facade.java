@@ -11,14 +11,17 @@ public class Facade {
 	public void cadastrarPeça(int ID, String nome, String descricao) {
 		PC.adicionarPeça(ID, nome, descricao);
 	}
-	public void cadastrarProduto(int idPeca, String marca, int codigo, int quantidade, double preco) {
-		PC.adicionarProduto(idPeca, marca, codigo, quantidade, preco);
+	public void cadastrarProduto(int idPeca, String marca, int codigo, int quantidade, double preçoCompra, double preçoVenda) {
+		PC.adicionarProduto(idPeca, marca, codigo, quantidade, preçoCompra, preçoVenda);
 	}
-	public String listarPeças() {
-		return "";
+	public String[] listarPeças() {
+		return PC.listarPeças();
 	}
-	public String listarProdutos() {
-		return "";
+	public String[] listarProdutos() {
+		return PC.listarProduts();
+	}
+	public String buscarProduto(int codigo) {
+		return PC.buscarProduto(codigo);
 	}
 	
 	//estoque

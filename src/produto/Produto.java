@@ -7,32 +7,29 @@ import peca.Peca;
 public class Produto {
 	private String marca;
 	private int codigo;
-	private int quantidade;
 	private double precoCompra;
 	private double precoVenda;
-	private Peca peça;
+	private Peca peca;
 	
 	public Produto() {}
-	public Produto(Peca peça, String marca, int codigo, int quantidade, double preçoCompra, double precoVenda) {
+	public Produto(Peca peça, String marca, int codigo, double preçoCompra, double precoVenda) {
 		this.marca = marca;
 		this.codigo = codigo;
-		this.quantidade = quantidade;
 		this.precoCompra = preçoCompra;
 		this.precoVenda = precoVenda;
-		this.peça = peça;
+		this.peca = peça;
 	}
 	public Produto(String marca, int codigo) {
 		this.marca = marca;
 		this.codigo = codigo;
-		this.quantidade = 0;
 		this.precoCompra = 0.0;
 		this.precoVenda = 0.0;
 	}
 
 	@Override
 	public String toString() {
-		return "Produto [marca=" + marca + ", codigo=" + codigo + ", quantidade=" + quantidade + ", precoCompra="
-				+ precoCompra + ", precoVenda=" + precoVenda + ", peça=" + peça.toString() + "]";
+		return "Produto [marca=" + marca + ", codigo=" + codigo + ", precoCompra="
+				+ precoCompra + ", precoVenda=" + precoVenda + "]";
 	}
 
 	@Override
@@ -51,11 +48,10 @@ public class Produto {
 		Produto other = (Produto) obj;
 		return codigo == other.codigo && Objects.equals(marca, other.marca);
 	}
-	
-	public void incrementaQuantidade(int quantidade) {
-		this.quantidade += quantidade;
+	public void alterarPreco(double compra, double venda) {
+		this.precoCompra = compra;
+		this.precoVenda = venda;
 	}
-	
 	// Getters and Setters
 	public double getPrecoCompra() {
 		return precoCompra;
@@ -63,11 +59,11 @@ public class Produto {
 	public double getPrecoVenda() {
 		return precoVenda;
 	}
-	public Peca getPeça() {
-		return peça;
+	public Peca getPeca() {
+		return peca;
 	}
 	public void setPeça(Peca peça) {
-		this.peça = peça;
+		this.peca = peça;
 	}
 	public void setPrecoCompra(double preco) {
 		this.precoCompra = preco;
@@ -78,10 +74,11 @@ public class Produto {
 	public int getCodigo() {
 		return codigo;
 	}
-	public double PrecoTotal() {
-	    return this.precoCompra * this.quantidade;
+	public String getMarca() {
+		return marca;
 	}
-	public int getQuantidade() {
-		return quantidade;
+	public void setMarca(String marca) {
+		this.marca = marca;
 	}
+	
 }

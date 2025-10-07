@@ -16,9 +16,9 @@ public class AutoPartsFacade {
 	public void cadastrarPeca(int ID, String nome, String descricao) {
 		CPeca.adicionarPeca(ID, nome, descricao);
 	}
-	public void cadastrarProduto(int idPeca, String marca, int codigo, int quantidade, double preçoCompra, double preçoVenda) {
+	public void cadastrarProduto(int idPeca, String marca, int codigo, double preçoCompra, double preçoVenda) {
 		Peca peca = CPeca.getPeca(idPeca);
-		CProduto.adicionarProduto(peca, marca, codigo, quantidade, preçoCompra, preçoVenda);
+		CProduto.adicionarProduto(peca, marca, codigo, preçoCompra, preçoVenda);
 	}
 	public String[] listarPecas() {
 		return CPeca.listarPecas();
